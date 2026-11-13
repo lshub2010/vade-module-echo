@@ -1,0 +1,98 @@
+{
+  "capabilities": {
+    "tools": [
+      {
+        "description": "原样返回输入文本，并给出字符长度",
+        "idempotent": true,
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "echo",
+        "risk": "low",
+        "timeout_ms": 5000
+      },
+      {
+        "description": "两个数值相加，用于验证参数类型与返回值",
+        "idempotent": true,
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "a": {
+              "type": "number"
+            },
+            "b": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "a",
+            "b"
+          ],
+          "type": "object"
+        },
+        "name": "add",
+        "risk": "low",
+        "timeout_ms": 1000
+      },
+      {
+        "description": "睡眠指定毫秒数；用于超时与取消的端到端验证",
+        "idempotent": true,
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "ms": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ms"
+          ],
+          "type": "object"
+        },
+        "name": "sleep",
+        "risk": "low",
+        "timeout_ms": 30000
+      },
+      {
+        "description": "总是抛出 INTERNAL 错误，用于验证错误通道",
+        "idempotent": true,
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "type": "object"
+        },
+        "name": "boom",
+        "risk": "low",
+        "timeout_ms": 1000
+      }
+    ]
+  },
+  "concurrency": "pooled",
+  "display_name": "回声模块",
+  "instance_id": "main",
+  "limits": {
+    "max_concurrency": 4,
+    "max_payload": 65519
+  },
+  "module_id": "com.example.echo",
+  "priority": 0,
+  "protocol": "vade/v1",
+  "role": "tool",
+  "version": "1.0.0"
+}

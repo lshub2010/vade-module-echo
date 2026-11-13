@@ -1,0 +1,4 @@
+vade-sdk==0.1.*
+
+[core]
+vade-sdk[core]==0.1.*
