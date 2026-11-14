@@ -15,6 +15,13 @@ it — one frame of plaintext), `ms` is an integer in `0…30000`, `add` accepts
 numbers only (`bool` is rejected), and every argument not in the signature is
 `INVALID_ARGUMENT`. There is no filesystem, network or subprocess access.
 
+## 页面（C-03 `ui.pages`，C-19）
+
+`build_app()` 通过 SDK 的 `ui_pages=` 声明一页 `echo`（`icon: list`，三段说明文本）。
+入口来自 manifest，不是客户端硬编码：`manifest.json` 里的 `ui` 块是生成物，
+手改会被下面那条 `--print-manifest | diff -` 不变量抓住。模块若没有 `ui` 块，
+`ui/modules` 里一个入口都不会出现（FR-8.79）。
+
 ## Layout
 
 ```

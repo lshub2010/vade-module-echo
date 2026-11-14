@@ -94,5 +94,38 @@
   "priority": 0,
   "protocol": "vade/v1",
   "role": "tool",
+  "ui": {
+    "pages": [
+      {
+        "icon": "list",
+        "id": "echo",
+        "schema": {
+          "children": [
+            {
+              "props": {
+                "text": "这个页面由模块的 manifest 声明（C-03 ui.pages），不是客户端硬编码的。"
+              },
+              "type": "text"
+            },
+            {
+              "props": {
+                "text": "模块没有 ui 块时，ui/modules 里一个入口都不会出现（FR-8.79）。"
+              },
+              "type": "text"
+            },
+            {
+              "props": {
+                "text": "工具：echo / add / sleep / boom"
+              },
+              "type": "text"
+            }
+          ],
+          "type": "column"
+        },
+        "title": "回声",
+        "version": 1
+      }
+    ]
+  },
   "version": "1.0.0"
 }

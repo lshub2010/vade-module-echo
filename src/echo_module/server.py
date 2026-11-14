@@ -59,6 +59,20 @@ def build_app() -> Any:
         display_name="回声模块",
         priority=0,
         capabilities=["tools"],
+        ui_pages=[{
+            "id": "echo",
+            "title": "回声",
+            "icon": "list",
+            "version": 1,
+            "schema": {
+                "type": "column",
+                "children": [
+                    {"type": "text", "props": {"text": "这个页面由模块的 manifest 声明（C-03 ui.pages），不是客户端硬编码的。"}},
+                    {"type": "text", "props": {"text": "模块没有 ui 块时，ui/modules 里一个入口都不会出现（FR-8.79）。"}},
+                    {"type": "text", "props": {"text": "工具：echo / add / sleep / boom"}},
+                ],
+            },
+        }],
     )
     for fn in tools_module.all_tools():
         meta = getattr(fn, "tool_meta", None)
