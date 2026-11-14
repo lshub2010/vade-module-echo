@@ -94,5 +94,38 @@
   "priority": 0,
   "protocol": "vade/v1",
   "role": "tool",
+  "ui": {
+    "pages": [
+      {
+        "icon": "list",
+        "id": "echo",
+        "schema": {
+          "children": [
+            {
+              "props": {
+                "text": "回声模块的页面声明在 manifest 的 ui.pages 里，不是客户端硬编码的。"
+              },
+              "type": "text"
+            },
+            {
+              "props": {
+                "text": "这条入口来自 ui/modules（C-05 1.6.0）：一个模块没有 ui 块就一个入口都没有。"
+              },
+              "type": "text"
+            },
+            {
+              "props": {
+                "text": "工具：echo / add / sleep / boom"
+              },
+              "type": "text"
+            }
+          ],
+          "type": "column"
+        },
+        "title": "回声",
+        "version": 1
+      }
+    ]
+  },
   "version": "1.0.0"
 }
